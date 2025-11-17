@@ -1,0 +1,23 @@
+version: '3.8'
+services:
+  app:
+    image: nestjs-app:optimized
+    ports:
+      - "3000:3000"
+    environment:
+      DB_HOST: db  
+      DB_PORT: 5432
+      DB_USER: postgres
+      DB_PASSWORD: 15.11.2005
+      DB_NAME: lab7
+    depends_on:
+      - db
+
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: postgres    
+      POSTGRES_PASSWORD: 15.11.2005    
+      POSTGRES_DB: lab7         
+    ports:
+      - "5432:5432"
